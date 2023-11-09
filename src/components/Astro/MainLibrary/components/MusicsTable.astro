@@ -9,11 +9,11 @@ interface Props {
 const { songs } = Astro.props;
 ---
 
-<table class="table-auto text-left min-w-full divide-y divide-gray-500/20">
+<table class="table-auto text-left w-full divide-y divide-gray-500/20">
 	<thead class="">
 		<tr class="text-zinc-400 text-sm">
 			<th class="px-4 py-2 font-light">#</th>
-			<th class="px-4 py-2 font-light">Título</th>
+			<th class="sm:px-4 py-2 font-light">Título</th>
 			<th class="px-4 py-2 font-light">Álbum</th>
 			<th class="px-4 py-2 font-light"><Time /></th>
 		</tr>
@@ -27,8 +27,8 @@ const { songs } = Astro.props;
 					<td class="px-4 py-2 rounded-tl-lg rounded-bl-lg w-5">
 						{index + 1}
 					</td>
-					<td class="px-4 py-2 flex gap-3">
-						<picture class="">
+					<td class="sm:px-4 py-2 flex gap-3">
+						<picture class="hidden sm:block">
 							<img
 								src={song.image}
 								alt={song.title}

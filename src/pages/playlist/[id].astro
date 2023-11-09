@@ -20,11 +20,11 @@ const imageBanner = playlist?.cover;
 <Layout title={title} `>
 	<section
 		id="playlist-container"
-		class="relative rounded-md pt-5 flex flex-col h-full overflow-x-hidden"
+		class="rounded-md flex flex-col"
 		transition:name=`playlist ${id} box`
 	>
 		<div
-			class="absolute inset-0 opacity-10"
+			class="absolute inset-0 opacity-20"
 			style={{
 				backgroundColor: colorBanner,
 			}}
@@ -35,9 +35,11 @@ const imageBanner = playlist?.cover;
 			<img class="w-full" src={imageBanner} alt="" />
 		</div>
 
-		<section class="relative flex-1 flex flex-col gap-5">
-			<header class="flex gap-8 px-6">
-				<picture class="aspect-square w-52 h-52 flex-none">
+		<section class="relative flex flex-col">
+			<header class="flex flex-col sm:flex-row gap-8 p-5">
+				<picture
+					class="aspect-square w-52 h-52 flex-none m-auto sm:m-0"
+				>
 					<img
 						src={playlist?.cover}
 						alt={`Cover of ${playlist?.title}`}
@@ -46,13 +48,13 @@ const imageBanner = playlist?.cover;
 					/>
 				</picture>
 
-				<div class="flex flex-col gap-5">
+				<div class="flex sm:flex-col gap-5">
 					<div
 						transition:name=`playlist ${playlist?.id} title`
 						class="flex-1 flex-col flex justify-end"
 					>
 						<h3>Playlist</h3>
-						<h2 class="text-5xl font-bold block">
+						<h2 class="text-xl lg:text-5xl font-bold block">
 							{playlist?.title}
 						</h2>
 					</div>

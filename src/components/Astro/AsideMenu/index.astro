@@ -9,10 +9,12 @@ import SideMenuCard from "@/components/Astro/AsideMenu/components/SideMenuCard.a
 import { playlists } from "@/lib/data";
 ---
 
-<aside class="[grid-area:aside] rounded-lg overflow-y-auto scroll-style">
+<aside
+	class="hidden md:block [grid-area:aside] rounded-lg overflow-y-auto scroll-style"
+>
 	<nav class="flex flex-col gap-2 min-h-full">
 		<div class="bg-zinc-900 rounded-lg p-2">
-			<ul class="flex flex-col gap-2">
+			<ul class="flex flex-col gap-5 p-2">
 				<SideMenuItem href="/">
 					<HomeIcon />
 					 Home

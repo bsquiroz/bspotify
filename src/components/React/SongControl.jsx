@@ -28,7 +28,7 @@ export const SongControl = ({ audio }) => {
 	const duration = audio?.current?.duration ?? 0;
 
 	return (
-		<div className="flex gap-x-3 text-xs pt-2">
+		<div className="flex gap-x-3 text-xs pt-2 ">
 			<span className="opacity-50 w-12 text-right">
 				{formatTime(currentTime)}
 			</span>
@@ -37,7 +37,7 @@ export const SongControl = ({ audio }) => {
 				value={[currentTime]}
 				max={audio?.current?.duration ?? 0}
 				min={0}
-				className="w-[400px]"
+				className="w-[150px] md:w-[200px] lg:w-[400px]"
 				onValueChange={(value) => {
 					const [newCurrentTime] = value;
 					audio.current.currentTime = newCurrentTime;

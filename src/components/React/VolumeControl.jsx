@@ -33,7 +33,7 @@ export const VolumeControl = () => {
 	};
 
 	return (
-		<div className="flex gap-2">
+		<div className="[grid-area:controlVolume] flex gap-2 justify-end">
 			<IconVolum />
 			<SliderRange
 				defaultValue={[100]}

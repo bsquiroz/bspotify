@@ -76,10 +76,13 @@ export function Player() {
 	};
 
 	return (
-		<div className="[grid-area:player] min-h-[80px] flex flex-row justify-between items-center">
+		<div
+			id="player"
+			className="[grid-area:player] h-[100px] sm:h-[80px] bg-black"
+		>
 			<CurrentSong {...currentMusic.song} />
 
-			<div className="flex flex-col items-center">
+			<div className="relative [grid-area:playerControl] flex flex-row items-center justify-between md:flex-col md:justify-center">
 				<div className="flex gap-4 items-center">
 					<button
 						className="w-4 h-4 text-gray-300 hover:text-white active:scale-95"
