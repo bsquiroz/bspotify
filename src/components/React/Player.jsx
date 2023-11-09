@@ -38,11 +38,12 @@ export function Player() {
 	}, [currentMusic]);
 
 	useEffect(() => {
+		if (!song) return;
+
 		const src = `/music/${playlist?.id}/0${numberSong}.mp3`;
 		audioRef.current.src = src;
 		audioRef.current.volume = volume;
 		audioRef.current.play();
-
 		setCurrentMusic({
 			...currentMusic,
 			song: songs.find((song) => song.id === numberSong),
