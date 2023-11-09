@@ -1,0 +1,46 @@
+---
+import { PlayButton } from "@/components/React/PlayButton";
+import type { Playlist } from "@/lib/data";
+
+interface Props {
+	playList: Playlist;
+}
+
+const {
+	playList: { albumId, artists, color, cover, id, title },
+} = Astro.props;
+
+const artistsString = artists.join(", ");
+---
+
+<article
+	class="relative group bg-zinc-500/30 rounded-md hover:bg-zinc-800 transition-all duration-200 shadow-lg hover:shadow-xl"
+>
+	<PlayButton id={id} client:load />
+	<a
+		href={`/playlist/${id}`}
+		class="playlist-item flex flex-col p-2 overflow-hidden items-center gap-2 pb-5 w-44"
+		transition:name=`playlist ${id} box`
+	>
+		<picture class="aspect-square w-full h-auto flex-none">
+			<img
+				src={cover}
+				alt={`Cover of ${title} by ${artistsString}`}
+				class="object-cover w-full h-full rounded-md"
+				transition:name=`playlist ${id} image`
+			/>
+		</picture>
+
+		<div class="flex flex-auto flex-col truncate w-full">
+			<h4 transition:name=`playlist ${id} title` class="text-sm">
+				{title}
+			</h4>
+			<p
+				transition:name=`playlist ${id} artists`
+				class="text-xs text-gray-400"
+			>
+				{artistsString}
+			</p>
+		</div>
+	</a>
+</article>

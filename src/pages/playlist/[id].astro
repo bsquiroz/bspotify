@@ -1,0 +1,71 @@
+---
+import { allPlaylists, songs } from "@/lib/data";
+import Layout from "@/layouts/Layout.astro";
+import MusicsTable from "@/components/MainLibrary/components/MusicsTable.astro";
+import { PlayButton } from "@/components/React/PlayButton";
+
+const { id } = Astro.params;
+const playlist = allPlaylists.find((playlist) => playlist.id === id);
+
+const title = `${playlist?.title} 🎵`;
+
+const playListSongs = songs.filter(
+	(song) => song.albumId === playlist?.albumId
+);
+---
+
+<Layout title={title} `>
+	<section
+		id="playlist-container"
+		class="relative flex flex-col h-full bg-zinc-900 overflow-x-hidden"
+		transition:name=`playlist ${id} box`
+	>
+		<header class="flex gap-8 px-6">
+			<picture class="aspect-square w-52 h-52 flex-none">
+				<img
+					src={playlist?.cover}
+					alt={`Cover of ${playlist?.title}`}
+					class="object-cover w-full h-full rounded-md"
+					transition:name=`playlist ${playlist?.id} image`
+				/>
+			</picture>
+
+			<div class="flex flex-col gap-5">
+				<div
+					transition:name=`playlist ${playlist?.id} title`
+					class="flex-1 flex-col flex justify-end"
+				>
+					<h3>Playlist</h3>
+					<h2 class="text-5xl font-bold block">
+						{playlist?.title}
+					</h2>
+				</div>
+
+				<div
+					transition:name=`playlist ${playlist?.id} artists`
+					class="flex flex-col justify-end text-sm text-gray-300 font-normal"
+				>
+					<p>
+						{playlist?.artists.join(", ")}
+					</p>
+					<p>
+						<span class="text-white"
+							>{playListSongs.length} canciones</span
+						>, 3 h aproximadamente
+					</p>
+				</div>
+			</div>
+		</header>
+
+		<div class="p-5">
+			<PlayButton id={id} buttonAnyPosition client:load />
+		</div>
+
+		<!-- <div
+			class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"
+		>
+		</div> -->
+
+		<MusicsTable songs={playListSongs} />
+	</section>
+</Layout>
