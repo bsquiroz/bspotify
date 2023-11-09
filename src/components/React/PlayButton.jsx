@@ -3,8 +3,13 @@ import { Pause, Play } from "./icons";
 import { usePlayerStore } from "@/store/playerStore";
 
 export function PlayButton({ id, buttonAnyPosition = false }) {
-	const { isPlaying, setIsPlaying, currentMusic, setCurrentMusic } =
-		usePlayerStore((state) => state);
+	const {
+		isPlaying,
+		setIsPlaying,
+		currentMusic,
+		setCurrentMusic,
+		setNumberSong,
+	} = usePlayerStore((state) => state);
 
 	const isPlayingPlayList = isPlaying && currentMusic?.playlist.id === id;
 
@@ -21,6 +26,7 @@ export function PlayButton({ id, buttonAnyPosition = false }) {
 
 				setIsPlaying(true);
 				setCurrentMusic({ songs, playlist, song: songs[0] });
+				setNumberSong(1);
 			});
 	};
 

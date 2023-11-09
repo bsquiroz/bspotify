@@ -18,7 +18,7 @@ export const VolumeControl = () => {
 			}
 		};
 		return (
-			<button className="w-6" onClick={handleMute}>
+			<button className="w-6 active:scale-95" onClick={handleMute}>
 				{volume >= 0.7 ? (
 					<VolumeMax />
 				) : volume >= 0.4 ? (

@@ -5,8 +5,10 @@ export const usePlayerStore = create((set) => ({
 	currentMusic: { playlist: null, song: null, songs: [] },
 	volume: 1,
 	colorBanner: "#1ed760",
+	numberSong: 1,
 	setIsPlaying: (isPlaying) => set({ isPlaying }),
 	setCurrentMusic: (currentMusic) => set({ currentMusic }),
 	setVolume: (volume) => set({ volume }),
 	setColorBanner: (colorBanner) => set({ colorBanner }),
+	setNumberSong: (numberSong) => set({ numberSong }),
 }));
