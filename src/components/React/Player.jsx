@@ -75,7 +75,7 @@ export function Player() {
 	};
 
 	return (
-		<div className="flex flex-row justify-between items-center w-full px-4 z-50 h-full">
+		<div className="[grid-area:player] min-h-[80px] flex flex-row justify-between items-center">
 			<CurrentSong {...currentMusic.song} />
 
 			<div className="flex flex-col items-center">
