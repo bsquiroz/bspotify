@@ -4,16 +4,27 @@ import PlayListItemCard from "@/components/MainLibrary/components/PlayListItemCa
 import Layout from "@/layouts/Layout.astro";
 import Greetings from "@/components/Svelte/Greetings.svelte";
 import { Overlay } from "@/components/React/Overlay";
+import { ItemMyLibrary } from "@/components/React/ItemMyLibrary";
 ---
 
 <Layout title="BSpotify">
 	<section id="playlist-container" class="relative rounded-lg">
 		<!-- PageHeader -->
 
-		<div class="relative z-10 px-6 pt-10">
+		<div class="relative z-10 px-6 pt-10 flex flex-col gap-4">
 			<Greetings />
+			<h2 class="text-xl font-bold">Your library</h2>
 
-			<div class="flex flex-wrap gap-4 mt-6">
+			<div class="grid grid-cols-3 gap-5">
+				{
+					playlists.map((playlist) => (
+						<ItemMyLibrary playList={playlist} client:load />
+					))
+				}
+			</div>
+
+			<h2 class="text-xl font-bold">For you</h2>
+			<div class="flex flex-wrap gap-4">
 				{
 					playlists.map((playlist) => (
 						<PlayListItemCard playList={playlist} />
@@ -22,6 +33,6 @@ import { Overlay } from "@/components/React/Overlay";
 			</div>
 		</div>
 
-		<Overlay />
+		<Overlay client:load />
 	</section>
 </Layout>
