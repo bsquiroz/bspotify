@@ -27,7 +27,8 @@ export const TitleItemLibrary = ({ id, title, albumId }) => {
 			className="text-green-500 text-base font-normal cursor-pointer hover:underline"
 			onClick={handleClick}
 		>
-			{title}.
+			{title}
+			<span></span>
 		</h3>
 	) : (
 		<h3
