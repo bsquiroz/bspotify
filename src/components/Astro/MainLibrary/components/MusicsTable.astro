@@ -1,6 +1,7 @@
 ---
 import Time from "../../../../icons/Time.astro";
 import { type Song } from "../../../../lib/data";
+import { TitleItemLibrary } from "../../../React/TitleItemLibrary";
 
 interface Props {
 	songs: Song[];
@@ -22,10 +23,10 @@ const { songs } = Astro.props;
 	<tbody>
 		<tr class="h-[16px]"></tr>
 		{
-			songs.map((song, index) => (
+			songs.map((song) => (
 				<tr class="border-spacing-0 text-gray-300 text-sm font-light hover:bg-white/10 overflow-hidden transition duration-300">
 					<td class="px-4 py-2 rounded-tl-lg rounded-bl-lg w-5">
-						{index + 1}
+						{song.id}
 					</td>
 					<td class="sm:px-4 py-2 flex gap-3">
 						<picture class="hidden sm:block">
@@ -36,9 +37,11 @@ const { songs } = Astro.props;
 							/>
 						</picture>
 						<div class="flex flex-col">
-							<h3 class="text-white text-base font-normal">
-								{song.title}
-							</h3>
+							<TitleItemLibrary
+								id={song.id}
+								title={song.title}
+								client:load
+							/>
 							<span>{song.artists.join(", ")}</span>
 						</div>
 					</td>
