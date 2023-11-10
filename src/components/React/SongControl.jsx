@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { SliderRange } from "./SlicerRange";
 
+import { usePlayerStore } from "../../store/playerStore";
+
 export const SongControl = ({ audio }) => {
 	const [currentTime, setCurrentTime] = useState(0);
+
+	const { numberSong, setNumberSong } = usePlayerStore((state) => state);
 
 	useEffect(() => {
 		audio.current.addEventListener("timeupdate", handleTimeUpdate);
@@ -11,6 +15,12 @@ export const SongControl = ({ audio }) => {
 			audio.current.removeEventListener("timeupdate", handleTimeUpdate);
 		};
 	}, []);
+
+	useEffect(() => {
+		if (currentTime === audio?.current?.duration) {
+			setNumberSong(numberSong + 1);
+		}
+	}, [currentTime]);
 
 	const handleTimeUpdate = () => {
 		setCurrentTime(audio.current.currentTime);
