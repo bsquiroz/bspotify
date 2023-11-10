@@ -1,5 +1,5 @@
-import { useRef, useEffect, useState } from "react";
-import { usePlayerStore } from "@/store/playerStore";
+import { useRef, useEffect } from "react";
+import { usePlayerStore } from "../../store/playerStore";
 
 import { Left, Pause, Play, Right } from "./icons";
 import { VolumeControl } from "./VolumeControl";

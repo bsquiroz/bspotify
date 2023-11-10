@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import { usePlayerStore } from "@/store/playerStore";
+import { usePlayerStore } from "../../store/playerStore";
 import { VolumeCancel, VolumeMax, VolumeMedio, VolumeMin } from "./icons";
 import { SliderRange } from "./SlicerRange";
 

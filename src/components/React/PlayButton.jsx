@@ -1,6 +1,6 @@
 import { Pause, Play } from "./icons";
 
-import { usePlayerStore } from "@/store/playerStore";
+import { usePlayerStore } from "../../store/playerStore";
 
 export function PlayButton({ id, buttonAnyPosition = false }) {
 	const {

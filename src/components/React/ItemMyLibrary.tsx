@@ -1,6 +1,6 @@
-import type { Playlist } from "@/lib/data";
+import type { Playlist } from "../../lib/data";
 import { PlayButton } from "./PlayButton";
-import { usePlayerStore } from "@/store/playerStore";
+import { usePlayerStore } from "../../store/playerStore";
 
 interface Props {
 	playList: Playlist;

@@ -1,4 +1,4 @@
-import { usePlayerStore } from "@/store/playerStore";
+import { usePlayerStore } from "../../store/playerStore";
 
 export const Overlay = () => {
 	const { colorBanner } = usePlayerStore((state) => state);

@@ -1,13 +1,9 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "baseUrl": "C:/Users/bemq2/Downloads/bspotify",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  }
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"baseUrl": "C:/Users/bemq2/Downloads/bspotify",
+		"paths": {},
+		"jsx": "react-jsx",
+		"jsxImportSource": "react"
+	}
 }

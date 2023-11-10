@@ -1,6 +1,6 @@
-import { allPlaylists, songs as allSongs } from "@/lib/data";
+import { allPlaylists, songs as allSongs } from "../../lib/data";
 
-export function GET({ params, request }) {
+export function GET({ _, request }) {
 	const { url } = request;
 	const urlObj = new URL(url);
 	const id = urlObj.searchParams.get("id");

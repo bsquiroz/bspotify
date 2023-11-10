@@ -1,12 +1,12 @@
 ---
-import type { Playlist } from "@/lib/data";
+import type { Playlist } from "../../../../lib/data";
 
 interface Props {
 	playList: Playlist;
 }
 
 const {
-	playList: { albumId, artists, color, cover, id, title },
+	playList: { artists, cover, id, title },
 } = Astro.props;
 
 const artistsString = artists.join(", ");
