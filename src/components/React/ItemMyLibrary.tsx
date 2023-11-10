@@ -17,14 +17,16 @@ export const ItemMyLibrary = ({ playList }: Props) => {
 
 	return (
 		<article
-			className="flex items-center relative group justify-between pr-5 rounded-md overflow-hidden cursor-pointer"
+			className="relative flex items-center group justify-between pr-5 rounded-md overflow-hidden cursor-pointer group:"
 			style={{
 				backgroundColor: `${playList.color.accent}10`,
 			}}
 		>
+			<div className="absolute z-10 inset-0 group-hover:bg-gray-500/10 "></div>
+
 			<a
 				href={`/playlist/${playList.albumId}`}
-				className="flex gap-2 justify-between items-center "
+				className="relative z-20 flex gap-2 justify-between items-center "
 				onMouseOver={() => {
 					setColorBanner(playList.color.accent);
 				}}
@@ -39,7 +41,7 @@ export const ItemMyLibrary = ({ playList }: Props) => {
 			{isPlayingPlayList ? (
 				<AnimationSong />
 			) : (
-				<div className="opacity-0 group-hover:opacity-100 transition duration-200">
+				<div className="relative z-20 opacity-0 group-hover:opacity-100 transition duration-200">
 					{" "}
 					<PlayButton id={playList.id} buttonAnyPosition />
 				</div>
