@@ -5,9 +5,10 @@ import { TitleItemLibrary } from "../../../React/TitleItemLibrary";
 
 interface Props {
 	songs: Song[];
+	albumId: number;
 }
 
-const { songs } = Astro.props;
+const { songs, albumId } = Astro.props;
 ---
 
 <table class="table-auto text-left w-full divide-y divide-gray-500/20">
@@ -40,6 +41,7 @@ const { songs } = Astro.props;
 							<TitleItemLibrary
 								id={song.id}
 								title={song.title}
+								albumId={albumId}
 								client:load
 							/>
 							<span>{song.artists.join(", ")}</span>

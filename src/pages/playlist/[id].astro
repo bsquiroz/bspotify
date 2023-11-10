@@ -80,7 +80,7 @@ const imageBanner = playlist?.cover;
 					<PlayButton id={id} buttonAnyPosition client:load />
 				</div>
 
-				<MusicsTable songs={playListSongs} />
+				<MusicsTable songs={playListSongs} albumId={+id!} />
 			</section>
 		</section>
 	</section>
