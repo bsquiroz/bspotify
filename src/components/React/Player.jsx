@@ -82,7 +82,7 @@ export function Player() {
 		>
 			<CurrentSong {...currentMusic.song} />
 
-			<div className="relative [grid-area:playerControl] flex flex-row items-center justify-between md:flex-col md:justify-center">
+			<div className="relative [grid-area:playerControl] flex flex-row items-center md:flex-col justify-center">
 				<div className="flex gap-4 items-center">
 					<button
 						className="w-4 h-4 text-gray-300 hover:text-white active:scale-95"

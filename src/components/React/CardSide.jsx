@@ -15,7 +15,7 @@ export const CardSide = ({ cover, title, artistsString, playlistId }) => {
 				<img
 					src={cover}
 					alt={`Cover of ${title} by ${artistsString}`}
-					class="object-cover w-full h-full rounded-md"
+					className="object-cover w-full h-full rounded-md"
 				/>
 			</picture>
 
