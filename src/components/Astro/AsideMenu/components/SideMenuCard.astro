@@ -1,5 +1,6 @@
 ---
 import type { Playlist } from "../../../../lib/data";
+import { CardSide } from "../../../React/CardSide";
 
 interface Props {
 	playList: Playlist;
@@ -14,20 +15,13 @@ const artistsString = artists.join(", ");
 
 <a
 	href={`/playlist/${id}`}
-	class="playlist-item flex relative p-2 overflow-hidden items-center gap-5 rounded-md hover:bg-zinc-800 transition duration-200"
+	class="playlist-item flex relative p-2 overflow-hidden items-center justify-start gap-5 rounded-md hover:bg-zinc-800 transition duration-200"
 >
-	<picture class="h-12 w-12">
-		<img
-			src={cover}
-			alt={`Cover of ${title} by ${artistsString}`}
-			class="object-cover w-full h-full rounded-md"
-		/>
-	</picture>
-
-	<div class="flex flex-auto flex-col truncate">
-		<h4 class="text-sm">{title}</h4>
-		<p class="text-xs text-gray-400">
-			{artistsString}
-		</p>
-	</div>
+	<CardSide
+		playlistId={id}
+		cover={cover}
+		title={title}
+		artistsString={artistsString}
+		client:load
+	/>
 </a>
