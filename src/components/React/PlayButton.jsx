@@ -19,6 +19,11 @@ export function PlayButton({ id, buttonAnyPosition = false }) {
 			return;
 		}
 
+		if (currentMusic.playlist?.id === id) {
+			setIsPlaying(!isPlaying);
+			return;
+		}
+
 		fetch(`/api/get-info-playlist.json?id=${id}`)
 			.then((res) => res.json())
 			.then((data) => {

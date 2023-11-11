@@ -1,4 +1,4 @@
-export const CurrentSong = ({ id, image, title, artists }) =>
+export const CurrentSong = ({ id, image, title, artists, albumId }) =>
 	id ? (
 		<div className="sm:w-[250px] [grid-area:currentSong] flex items-center gap-2 relative overflow-hidden">
 			<picture className="w-16 h-16 bg-zinc-800 rounded-md shadow-lg overflow-hidden">
@@ -6,9 +6,12 @@ export const CurrentSong = ({ id, image, title, artists }) =>
 			</picture>
 
 			<div className="flex flex-col">
-				<h3 className="font-semibold text-sm block">
+				<a
+					href={`/playlist/${albumId}`}
+					className="font-semibold text-sm block hover:underline"
+				>
 					{id} {title}
-				</h3>
+				</a>
 				<span className="text-xs opacity-80">
 					{artists?.join(", ")}
 				</span>

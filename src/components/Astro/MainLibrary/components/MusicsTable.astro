@@ -1,4 +1,5 @@
 ---
+import { TableIdSong } from "src/components/React/TableIdSong";
 import Time from "../../../../icons/Time.astro";
 import { type Song } from "../../../../lib/data";
 import { TitleItemLibrary } from "../../../React/TitleItemLibrary";
@@ -27,7 +28,11 @@ const { songs, albumId } = Astro.props;
 			songs.map((song) => (
 				<tr class="border-spacing-0 text-gray-300 text-sm font-light hover:bg-white/10 overflow-hidden transition duration-300">
 					<td class="px-4 py-2 rounded-tl-lg rounded-bl-lg w-5">
-						{song.id}
+						<TableIdSong
+							id={song.id}
+							albumId={albumId}
+							client:load
+						/>
 					</td>
 					<td class="sm:px-4 py-2 flex gap-3">
 						<picture class="hidden sm:block">

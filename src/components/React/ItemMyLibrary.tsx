@@ -26,7 +26,7 @@ export const ItemMyLibrary = ({ playList }: Props) => {
 
 			<a
 				href={`/playlist/${playList.albumId}`}
-				className="relative z-20 flex gap-2 justify-between items-center whitespace-nowrap"
+				className="relative z-20 flex-1 flex gap-2 justify-between items-center whitespace-nowrap"
 				onMouseOver={() => {
 					setColorBanner(playList.color.accent);
 				}}
@@ -49,7 +49,7 @@ export const ItemMyLibrary = ({ playList }: Props) => {
 			{isPlayingPlayList ? (
 				<AnimationSong />
 			) : (
-				<div className="relative z-20 opacity-0 group-hover:opacity-100 transition duration-200">
+				<div className="relative z-20 opacity-0 group-hover:opacity-100 transition duration-200 hidden sm:block">
 					{" "}
 					<PlayButton id={playList.id} buttonAnyPosition />
 				</div>
