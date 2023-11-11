@@ -26,7 +26,7 @@ export const ItemMyLibrary = ({ playList }: Props) => {
 
 			<a
 				href={`/playlist/${playList.albumId}`}
-				className="relative z-20 flex gap-2 justify-between items-center "
+				className="relative z-20 flex gap-2 justify-between items-center whitespace-nowrap"
 				onMouseOver={() => {
 					setColorBanner(playList.color.accent);
 				}}
@@ -35,7 +35,15 @@ export const ItemMyLibrary = ({ playList }: Props) => {
 					<img src={playList.cover} alt={`image ${playList.title}`} />
 				</picture>
 
-				<h3 className="text-sm font-bold flex-1">{playList.title}</h3>
+				<h3 className="text-sm font-bold flex-1 md:hidden">
+					{playList.title.length > 10
+						? `${playList.title.slice(0, 10)}...`
+						: playList.title}
+				</h3>
+
+				<h3 className="hidden text-sm font-bold flex-1 md:block">
+					{playList.title}
+				</h3>
 			</a>
 
 			{isPlayingPlayList ? (

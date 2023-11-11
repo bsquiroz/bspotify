@@ -8,14 +8,17 @@ import { ItemMyLibrary } from "../components/React/ItemMyLibrary";
 ---
 
 <Layout title="BSpotify">
-	<section id="playlist-container" class="relative rounded-lg">
+	<section
+		id="playlist-container"
+		class="relative rounded-lg bg-zinc-900 min-h-full pb-5"
+	>
 		<!-- PageHeader -->
 
 		<div class="relative z-10 px-6 pt-10 flex flex-col gap-4">
 			<Greetings />
 			<h2 class="text-xl font-bold">Your library</h2>
 
-			<div class="templateColumnsLibrary">
+			<div class="grid gap-2 grid-cols-2">
 				{
 					playlists.map((playlist) => (
 						<ItemMyLibrary playList={playlist} client:load />
@@ -24,7 +27,9 @@ import { ItemMyLibrary } from "../components/React/ItemMyLibrary";
 			</div>
 
 			<h2 class="text-xl font-bold">For you</h2>
-			<div class="flex flex-wrap gap-4">
+			<div
+				class="flex gap-2 overflow-x-auto scroll-style sm:flex-wrap sm:justify-center xl:justify-start"
+			>
 				{
 					playlists.map((playlist) => (
 						<PlayListItemCard playList={playlist} />
