@@ -6,7 +6,9 @@ import { usePlayerStore } from "../../store/playerStore";
 export const SongControl = ({ audio }) => {
 	const [currentTime, setCurrentTime] = useState(0);
 
-	const { numberSong, setNumberSong } = usePlayerStore((state) => state);
+	const { numberSong, setNumberSong, currentMusic } = usePlayerStore(
+		(state) => state
+	);
 
 	useEffect(() => {
 		audio.current.addEventListener("timeupdate", handleTimeUpdate);
@@ -18,6 +20,11 @@ export const SongControl = ({ audio }) => {
 
 	useEffect(() => {
 		if (currentTime === audio?.current?.duration) {
+			if (numberSong === currentMusic.songs?.length) {
+				setNumberSong(1);
+				return;
+			}
+
 			setNumberSong(numberSong + 1);
 		}
 	}, [currentTime]);
