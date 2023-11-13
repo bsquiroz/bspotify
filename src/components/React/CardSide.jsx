@@ -19,7 +19,7 @@ export const CardSide = ({ cover, title, artistsString, playlistId }) => {
 				/>
 			</picture>
 
-			<div className="flex flex-auto flex-col truncate">
+			<div className="hidden md:flex flex-auto flex-col truncate">
 				{isPlayingList ? (
 					<h4 className="text-sm text-green-500">
 						<span></span>
@@ -33,15 +33,18 @@ export const CardSide = ({ cover, title, artistsString, playlistId }) => {
 					{artistsString}
 				</p>
 			</div>
-			{isPlayingList && (
-				<div className="w-4 text-green-500">
-					{isPlaying ? (
-						<VolumeMax />
-					) : (
-						<Pause className={"w-3 fill-green-500"} />
-					)}
-				</div>
-			)}
+
+			<div className="hidden md:block">
+				{isPlayingList && (
+					<div className="w-4 text-green-500">
+						{isPlaying ? (
+							<VolumeMax />
+						) : (
+							<Pause className={"w-3 fill-green-500"} />
+						)}
+					</div>
+				)}
+			</div>
 		</>
 	);
 };

@@ -48,7 +48,7 @@ export const SearchSong = () => {
 					return (
 						<li
 							key={index}
-							className="flex gap-3 items-center hover:bg-slate-500/20 p-1 duration-300 transition-all"
+							className="flex gap-3 items-center hover:bg-slate-500/20 p-1 duration-300 transition-all cursor-pointer"
 							onClick={() => handleClick(song.albumId, song.id)}
 						>
 							<picture className="w-14 h-14 rounded-md overflow-hidden">
@@ -58,14 +58,14 @@ export const SearchSong = () => {
 								<strong>{song.title}</strong>
 								<small>{song.artists.join(", ")}</small>
 							</p>
-							<p className="flex gap-1">
+							<div className="flex gap-1">
 								<small>{song.duration}</small>
 								<TableIdSong
 									albumId={song.albumId}
 									id={song.id}
 									hidden
 								/>
-							</p>
+							</div>
 						</li>
 					);
 				})}

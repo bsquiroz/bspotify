@@ -9,20 +9,18 @@ import SideMenuCard from "../..//Astro/AsideMenu/components/SideMenuCard.astro";
 import { playlists } from "../../..//lib/data";
 ---
 
-<aside
-	class="hidden md:block [grid-area:aside] rounded-lg overflow-y-auto scroll-style"
->
+<aside class="[grid-area:aside] rounded-lg overflow-y-auto scroll-style">
 	<nav class="flex flex-col gap-2 min-h-full">
 		<div class="bg-zinc-900 rounded-lg p-2">
 			<ul class="flex flex-col gap-5 p-2">
 				<SideMenuItem href="/">
 					<HomeIcon />
-					 Home
+					<span class="hidden md:block">Home</span>
 				</SideMenuItem>
 
 				<SideMenuItem href="/search">
 					<SearchIcon />
-					 Search
+					<span class="hidden md:block">Search</span>
 				</SideMenuItem>
 			</ul>
 		</div>
@@ -31,10 +29,10 @@ import { playlists } from "../../..//lib/data";
 			<ul>
 				<SideMenuItem href="/#">
 					<LibraryIcon />
-					 Your librery
+					<span class="hidden md:block">Your librery</span>
 				</SideMenuItem>
 
-				<section class="pt-2">
+				<section class="pt-2 flex flex-col items-center md:items-start">
 					{
 						playlists.map((playlist) => (
 							<SideMenuCard playList={playlist} />
