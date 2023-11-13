@@ -35,7 +35,11 @@ const timeStr = totalTimePlaylist(playListSongs);
 		</div>
 
 		<div class="absolute inset-0 opacity-10 overflow-hidden">
-			<img class="w-full" src={imageBanner} alt="" />
+			<img
+				class="w-full h-full object-cover"
+				src={imageBanner}
+				alt=`image bg ${title}`
+			/>
 		</div>
 
 		<section class="relative flex flex-col flex-1">
