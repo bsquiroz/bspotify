@@ -16,10 +16,19 @@ export default {
 					"50%": { height: "2px" },
 					"75%": { height: "15px" },
 				},
+				bgAnimate: {
+					"0%": {
+						scale: "100%",
+					},
+					"100%": {
+						scale: "110%",
+					},
+				},
 			},
 			animation: {
 				playSong1: "songMove1 1s infinite linear",
 				playSong2: "songMove2 1s infinite linear",
+				playBgAnimate: "bgAnimate 1s forwards",
 			},
 		},
 	},

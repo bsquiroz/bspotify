@@ -76,39 +76,42 @@ export function Player() {
 	};
 
 	return (
-		<div
-			id="player"
-			className="[grid-area:player] h-[100px] sm:h-[80px] bg-black"
-		>
-			<CurrentSong {...currentMusic.song} />
+		<>
+			{song && (
+				<div
+					id="player"
+					className="[grid-area:player] h-[100px] sm:h-[80px] bg-black"
+				>
+					<CurrentSong {...currentMusic.song} />
 
-			<div className="relative [grid-area:playerControl] flex flex-row items-center md:flex-col justify-center">
-				<div className="flex gap-4 items-center">
-					<button
-						className="w-4 h-4 text-gray-300 hover:text-white active:scale-95"
-						onClick={handlePreviusSong}
-					>
-						<Left />
-					</button>
-					<button
-						className="bg-white rounded-full p-2 active:scale-95"
-						onClick={handleClick}
-					>
-						{isPlaying ? <Pause /> : <Play />}
-					</button>
-					<button
-						className="w-4 h-4 text-gray-300 hover:text-white active:scale-95"
-						onClick={handleNextSong}
-					>
-						<Right />
-					</button>
+					<div className="relative [grid-area:playerControl] flex flex-row items-center md:flex-col justify-center">
+						<div className="flex gap-4 items-center">
+							<button
+								className="w-4 h-4 text-gray-300 hover:text-white active:scale-95"
+								onClick={handlePreviusSong}
+							>
+								<Left />
+							</button>
+							<button
+								className="bg-white rounded-full p-2 active:scale-95"
+								onClick={handleClick}
+							>
+								{isPlaying ? <Pause /> : <Play />}
+							</button>
+							<button
+								className="w-4 h-4 text-gray-300 hover:text-white active:scale-95"
+								onClick={handleNextSong}
+							>
+								<Right />
+							</button>
+						</div>
+						<SongControl audio={audioRef} />
+					</div>
+
+					<VolumeControl />
 				</div>
-				<SongControl audio={audioRef} />
-			</div>
-
-			<VolumeControl />
-
+			)}
 			<audio ref={audioRef} />
-		</div>
+		</>
 	);
 }
