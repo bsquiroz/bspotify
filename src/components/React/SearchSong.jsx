@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { songs } from "src/lib/data";
-import { usePlayerStore } from "src/store/playerStore";
+import { songs } from "../../lib/data";
+import { usePlayerStore } from "../../store/playerStore";
 import { TableIdSong } from "./TableIdSong";
 
 export const SearchSong = () => {
