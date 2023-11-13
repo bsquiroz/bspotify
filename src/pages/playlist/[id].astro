@@ -20,7 +20,7 @@ const imageBanner = playlist?.cover;
 <Layout title={title} `>
 	<section
 		id="playlist-container"
-		class="rounded-md flex flex-col"
+		class="relative flex min-h-full"
 		transition:name=`playlist ${id} box`
 	>
 		<div
@@ -35,7 +35,7 @@ const imageBanner = playlist?.cover;
 			<img class="w-full" src={imageBanner} alt="" />
 		</div>
 
-		<section class="relative flex flex-col">
+		<section class="relative flex flex-col flex-1">
 			<header class="flex flex-col sm:flex-row gap-8 p-5">
 				<picture
 					class="aspect-square w-52 h-52 flex-none m-auto sm:m-0"
